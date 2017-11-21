@@ -106,10 +106,6 @@
                     <span class="word-counter" v-show="contentShortLength">{{contentShortLength}}字</span>
                 </el-form-item>
 
-                <div class="editor-container">
-                    <tinymce :height=400 ref="editor" v-model="postForm.content"></tinymce>
-                </div>
-
                 <div style="margin-bottom: 20px;">
                     <Upload v-model="postForm.image_uri"></Upload>
                 </div>
@@ -120,7 +116,6 @@
 </template>
 
 <script>
-import Tinymce from '@/components/Tinymce'
 import Upload from '@/components/Upload/singleImage3'
 import MDinput from '@/components/MDinput'
 import Multiselect from 'vue-multiselect'// 使用的一个多选框组件，element-ui的select不能满足所有需求
@@ -132,7 +127,7 @@ import { userSearch } from '@/api/remoteSearch'
 
 export default {
     name: 'articleDetail',
-    components: { Tinymce, MDinput, Upload, Multiselect, Sticky },
+    components: { MDinput, Upload, Multiselect, Sticky },
     data() {
         const validateRequire = (rule, value, callback) => {
             if (value === '') {

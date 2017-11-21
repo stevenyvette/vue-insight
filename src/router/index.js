@@ -26,20 +26,12 @@ export const constantRouterMap = [
 		children: [{ path: 'index', component: _import('dashboard/index'), name: '展示' }]
 	},
 	{
-		path: '/welcome',
-		component: Layout,
-		name: '首页',
-		icon: 'people',
-		noDropdown: true,
-		children: [{ path: 'index', component: _import('welcome/index'), name: '首页' }]
-	},
-	{
 		path: '/introduction',
 		component: Layout,
 		redirect: '/introduction/index',
 		icon: 'component',
 		noDropdown: true,
-		children: [{ path: 'index', component: _import('introduction/index'), name: '简述' }]
+		children: [{ path: 'index', component: _import('introduction/index'), name: '首页' }]
 	}
 ]
 
@@ -65,8 +57,6 @@ export const asyncRouterMap = [
 		icon: 'component',
 		children: [
 			{ path: 'index', component: _import('components/index'), name: '介绍 ' },
-			{ path: 'tinymce', component: _import('components/tinymce'), name: '富文本编辑器' },
-			{ path: 'markdown', component: _import('components/markdown'), name: 'Markdown' },
 			{ path: 'jsoneditor', component: _import('components/jsonEditor'), name: 'JSON编辑器' },
 			{ path: 'dndlist', component: _import('components/dndList'), name: '列表拖拽' },
 			{ path: 'splitpane', component: _import('components/splitpane'), name: 'SplitPane' },
@@ -75,7 +65,6 @@ export const asyncRouterMap = [
 			{ path: 'sticky', component: _import('components/sticky'), name: 'Sticky' },
 			{ path: 'countto', component: _import('components/countTo'), name: 'CountTo' },
 			{ path: 'mixin', component: _import('components/mixin'), name: '小组件' },
-			{ path: 'backtotop', component: _import('components/backToTop'), name: '返回顶部' }
 		]
 	},
 	{
@@ -130,16 +119,6 @@ export const asyncRouterMap = [
 	]
 	},
 	{
-		path: '/zip',
-		component: Layout,
-		redirect: '/zip/download',
-		name: 'zip',
-		icon: 'zip',
-		children: [
-			{ path: 'download', component: _import('zip/index'), name: 'export zip' }
-		]
-	},
-	{
 		path: '/theme',
 		component: Layout,
 		redirect: 'noredirect',
@@ -156,5 +135,5 @@ export const asyncRouterMap = [
 		noDropdown: true,
 		children: [{ path: 'index', component: _import('document/index'), name: '文档' }]
 	},
-	// { path: '*', redirect: '/404', hidden: true }
+	{ path: '*', redirect: '/404', hidden: true }
 ]
