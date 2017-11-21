@@ -4,24 +4,24 @@
 
 <script>
 export default {
-  props: {
-    split: {
-      validator(value) {
-        return ['vertical', 'horizontal'].indexOf(value) >= 0
-      },
-      required: true
+    props: {
+        split: {
+            validator(value) {
+                return ['vertical', 'horizontal'].indexOf(value) >= 0
+            },
+            required: true
+        },
+        onMouseDown: {
+            type: Function,
+            required: true
+        }
     },
-    onMouseDown: {
-      type: Function,
-      required: true
+    data() {
+        const classes = ['Resizer', this.split, 'className']
+        return {
+            classes: classes.join(' ')
+        }
     }
-  },
-  data() {
-    const classes = ['Resizer', this.split, 'className']
-    return {
-      classes: classes.join(' ')
-    }
-  }
 }
 </script>
 

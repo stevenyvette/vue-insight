@@ -48,7 +48,6 @@
 - screenfull
 - markdown2html
 - views-tab
-- clipboard
 
 ## Development
 
@@ -81,30 +80,30 @@ npm run build:prod
 ## Directory structure
 
 ```
-├── build                      // build 
-├── config                     // config
-├── src                        // source code
-│   ├── api                    // all requests
-│   ├── assets                 // static resource like themes, fonts
-│   ├── components             // global public components
-│   ├── directive              // global directive
-│   ├── filters                // global filters
-│   ├── mock                   // mock data
-│   ├── router                 // router
-│   ├── store                  // global status management
-│   ├── styles                 // global styles
-│   ├── utils                  // global public functions
-│   ├── view                   // view
-│   ├── App.vue                // entry view
-│   └── main.js                // entry for loading components, initialization
-├── static                     // third-party libraries not packed with Webpack
-│   └── Tinymce                // rich text
-├── .babelrc                   // babel-loader config
-├── eslintrc.js                // eslint config
-├── .gitignore                 // gitignore
-├── favicon.ico                // favicon
-├── index.html                 // html template
-└── package.json               // package.json
+├── build                                            // build 
+├── config                                         // config
+├── src                                                // source code
+│   ├── api                                        // all requests
+│   ├── assets                                 // static resource like themes, fonts
+│   ├── components                         // global public components
+│   ├── directive                            // global directive
+│   ├── filters                                // global filters
+│   ├── mock                                     // mock data
+│   ├── router                                 // router
+│   ├── store                                    // global status management
+│   ├── styles                                 // global styles
+│   ├── utils                                    // global public functions
+│   ├── view                                     // view
+│   ├── App.vue                                // entry view
+│   └── main.js                                // entry for loading components, initialization
+├── static                                         // third-party libraries not packed with Webpack
+│   └── Tinymce                                // rich text
+├── .babelrc                                     // babel-loader config
+├── eslintrc.js                                // eslint config
+├── .gitignore                                 // gitignore
+├── favicon.ico                                // favicon
+├── index.html                                 // html template
+└── package.json                             // package.json
 ```
 
 ## Changelog

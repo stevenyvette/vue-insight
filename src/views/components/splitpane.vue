@@ -1,8 +1,8 @@
 <template>
 	<div class="components-container">
 		<code>splitPane 如果你用过<a href='http://codepen.io/' target='_blank'> codepen</a>,<a href='https://jsfiddle.net/' target='_blank'> jsfiddle </a>就不会陌生了
-      <a href='https://github.com/PanJiaChen/vue-split-pane' target='_blank'>项目地址</a>
-      </code>
+            <a href='https://github.com/PanJiaChen/vue-split-pane' target='_blank'>项目地址</a>
+            </code>
 		<split-pane v-on:resize="resize" split="vertical">
 			<template slot="paneL">
 				<div class="left-container"></div>
@@ -26,16 +26,16 @@
 import splitPane from 'vue-splitpane'
 
 export default {
-  components: { splitPane },
-  methods: {
-    resize() {
-      console.log('resize')
+    components: { splitPane },
+    methods: {
+        resize() {
+            console.log('resize')
+        }
     }
-  }
 }
 </script>
 
-<style  scoped>
+<style    scoped>
 	.components-container {
 		position: relative;
 		height: 100vh;
