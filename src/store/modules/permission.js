@@ -1,4 +1,4 @@
-import { asyncRouterMap, constantRouterMap } from '@/router'
+import { constantRouterMap } from '@/router'
 
 const permission = {
     state: {
@@ -7,8 +7,7 @@ const permission = {
     },
     mutations: {
         SET_ROUTERS: (state, routers) => {
-            state.addRouters = routers
-            state.routers = constantRouterMap.concat(routers)
+            state.routers = [].concat(routers)
         }
     },
     actions: {
@@ -16,7 +15,7 @@ const permission = {
             return new Promise(resolve => {
                 const { roles } = data
                 let accessedRouters
-                accessedRouters = asyncRouterMap
+                accessedRouters = constantRouterMap
                 commit('SET_ROUTERS', accessedRouters)
                 resolve()
             })

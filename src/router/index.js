@@ -15,13 +15,13 @@ import Layout from '../views/layout/Layout'
 * noDropdown : if `noDropdown:true` will has no submenu
 * meta : { role: ['admin'] }    will control the page role
 **/
+
 export const constantRouterMap = [
 	{ path: '/404', component: _import('errorPage/404'), hidden: true },
 	{ path: '/401', component: _import('errorPage/401'), hidden: true },
 	{
 		path: '/',
 		component: Layout,
-		name: '展示',
 		hidden: true,
 		children: [{ path: 'index', component: _import('dashboard/index'), name: '展示' }]
 	},
@@ -32,16 +32,7 @@ export const constantRouterMap = [
 		icon: 'component',
 		noDropdown: true,
 		children: [{ path: 'index', component: _import('introduction/index'), name: '首页' }]
-	}
-]
-
-export default new Router({
-	mode: 'history', //后端支持可开
-	scrollBehavior: () => ({ y: 0 }),
-	routes: constantRouterMap
-})
-
-export const asyncRouterMap = [
+	},
 	{
 		path: '/icon',
 		component: Layout,
@@ -60,7 +51,6 @@ export const asyncRouterMap = [
 			{ path: 'jsoneditor', component: _import('components/jsonEditor'), name: 'JSON编辑器' },
 			{ path: 'dndlist', component: _import('components/dndList'), name: '列表拖拽' },
 			{ path: 'splitpane', component: _import('components/splitpane'), name: 'SplitPane' },
-			{ path: 'avatarupload', component: _import('components/avatarUpload'), name: '头像上传' },
 			{ path: 'dropzone', component: _import('components/dropzone'), name: 'Dropzone' },
 			{ path: 'sticky', component: _import('components/sticky'), name: 'Sticky' },
 			{ path: 'countto', component: _import('components/countTo'), name: 'CountTo' },
@@ -130,6 +120,7 @@ export const asyncRouterMap = [
 	{
 		path: '/document',
 		component: Layout,
+		redirect: '/document/index',
 		name: 'document',
 		icon: 'excel',
 		noDropdown: true,
@@ -137,3 +128,9 @@ export const asyncRouterMap = [
 	},
 	{ path: '*', redirect: '/404', hidden: true }
 ]
+
+export default new Router({
+	mode: 'history', //后端支持可开
+	scrollBehavior: () => ({ y: 0 }),
+	routes: constantRouterMap
+})

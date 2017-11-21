@@ -1,26 +1,120 @@
 <template>
 	<div class="app-container">
 		<div class="wrapper">
-			<code>
-			这半年来一直在用vue写管理后台，目前后台已经有百来个个页面，十几种权限，但维护成本依然很低，所以准备开源分享一下后台开发的经验和成果。目前的技术栈主要的采用vue+element+axios由webpack2打包.由于是个人项目，所以数据请求都是用了mockjs模拟。注意：在次项目基础上改造开发时请移除mock文件。
-			写了一个系列的教程配套文章，如何从零构建后一个完整的后台项目:
-				<ul>
-					<li><a target='_blank' class='lin' href="https://github.com/PanJiaChen/vue-element-admin/">项目地址</a></li>
-					<li><a target='_blank' class='lin' href="https://github.com/PanJiaChen/vue-element-admin/wiki">wiki</a></li>
-					<li><a target='_blank' href="https://juejin.im/post/59097cd7a22b9d0065fb61d2">手摸手，带你用 vue 撸后台 系列一(基础篇)</a></li>
-					<li><a target='_blank' href="https://juejin.im/post/591aa14f570c35006961acac">手摸手，带你用 vue 撸后台 系列二(登录权限篇)</a></li>
-					<li><a target='_blank' href="https://juejin.im/post/593121aa0ce4630057f70d35">手摸手，带你用 vue 撸后台 系列三 (实战篇)</a></li>
-					 <li><a target='_blank' href="https://juejin.im/post/595b4d776fb9a06bbe7dba56">手摸手，带你用vue撸后台 系列四(vueAdmin 一个极简的后台基础模板)</a></li>
-					<li><a target='_blank' href="https://segmentfault.com/a/1190000009090836">手摸手，带你封装一个vue component</a></li>
-				</ul>
-			</code>
+			<div class="col-md-12" id="introduction">
+				<div class="jumbotron">
+					<h1>Welcome to <i style="color:#F09B22;">insight. !</i></h1>
+					<br />
+					<el-alert title="A visualization platform for network reshaping problem." type="info" show-icon></el-alert>
+					<p>To begin our trip,<br /><strong>Select a Network :</strong></p>
+					<el-row :gutter="5">
+						<el-col :span="6" class='text-center'>
+							<router-link class="pan-btn blue-btn" to="/components/index">Les Miserables</router-link>
+						</el-col>
+						<el-col :span="6" class='text-center'>
+							<router-link class="pan-btn light-blue-btn" to="/charts/index" @click.native="getFilePath($event)">Train Boming</router-link>
+						</el-col>
+						<el-col :span="6" class='text-center'>
+							<router-link class="pan-btn pink-btn" to="/excel/download">Air Traffic</router-link>
+						</el-col>
+					</el-row>
+					<el-row :gutter="5">
+						<el-col :span="6" class='text-center'>
+							<router-link class="pan-btn green-btn" to="/example/table/table">Network 1</router-link>
+						</el-col>
+						<el-col :span="6" class='text-center'>
+							<router-link class="pan-btn tiffany-btn" to="/example/form/edit">Network 2</router-link>
+						</el-col>
+						<el-col :span="6" class='text-center'>
+							<router-link class="pan-btn yellow-btn" to="/theme/index">More</router-link>
+						</el-col>
+					</el-row>
+				</div>
+			</div>
+			<div class="panel panel-default" id="network-id" style="display: none;top:10px">
+				<br />
+				<div class="panel-heading">
+					<strong id="show-file-name" style="font-size: 19px;">Network ID:&nbsp&nbsp&nbsp</strong>
+			</div>
+			<div class="panel-body">
+					<div class="alert alert-success">
+							<strong>Well Done! &nbsp&nbsp</strong>
+							Now, you can go on!
+					</div>
+					<div class="col-lg-7" id="remove-option-1" style="display: none;">
+							<div class="alert alert-info" >
+								<div class="form-group" style="width:50%;float:left">
+							<label>需要满足的属性:</label>
+							<div class="checkbox">
+								<label>
+									<input name="checkbox-1" id='role' type="checkbox" value="角色">角色
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input name="checkbox-1" id="friend-numbers" type="checkbox" value="朋友数">朋友数
+								</label>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input name="checkbox-1" id="importance" type="checkbox" value="总要度">重要度
+								</label>
+							</div>
+								</div>
+								<div class="form-group" style="width:50%;float:left">
+									<label>迭代替换的次数:</label>
+									<select id="times" class="form-control">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+									</select>
+						</div>
+						<button onclick="node_action()" class="btn btn-success" style="float: right;">确认删除</button>
+						<button onclick="reset()" class="btn btn-danger" >重置</button>
+						<button onclick="remove_cancel()" class="btn btn-warning" style="float: right;">取消</button>
+							</div>
+						</div>
+					<div class="col-lg-4" id='remove-option-2' style='display: none;'>
+							<div class="alert alert-info" id="global-operation">
+								<h4>Global Operation</h4>
+								<br />
+						<button class="btn btn-danger" onclick="reset_1()"><i class="fa fa-pencil"></i> Reset</button>
+						<button class="btn btn-warning" onclick='window.open("help/help.html")'><i class="fa fa-question "></i> Help</button>
+								<button class="btn btn-default" onclick='location.reload()'><i class=" fa fa-refresh "></i> Refresh</button>
+							</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
+<script>
+import { mapActions } from 'vuex'
+export default {
+	computed: {
+		test() {
+			console.log('hahah');
+		}
+	},
+	methods: mapActions([
+		'getFilePath'
+	]),
+}
+</script>
+
 <style scoped>
-	.wrapper{
-		width: 800px;
-		margin: 30px auto;
+.app-container {
+	background: rgb(240, 242, 245);
+}
+.wrapper{
+	width: 800px;
+	margin: 30px auto;
+}
+.el-row {
+	margin-bottom: 20px;
+	&:last-child {
+	  margin-bottom: 0;
 	}
+}
 </style>

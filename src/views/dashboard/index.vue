@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import adminDashboard from './admin/index'
 import editorDashboard from './editor/index'
 
