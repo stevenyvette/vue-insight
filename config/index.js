@@ -2,13 +2,13 @@
 var path = require('path')
 
 module.exports = {
-        build: {
+		build: {
 			sitEnv: require('./sit.env'),
 			prodEnv: require('./prod.env'),
 			index: path.resolve(__dirname, '../dist/index.html'),
 			assetsRoot: path.resolve(__dirname, '../dist'),
 			assetsSubDirectory: 'static',
-			assetsPublicPath: '/dist/',                    //请根据自己路径配置更改
+			assetsPublicPath: '/dist/',//请根据自己路径配置更改
 			productionSourceMap: false,
 			// Gzip off by default as many popular static hosts such as
 			// Surge or Netlify already gzip all static assets for you.
@@ -21,8 +21,8 @@ module.exports = {
 			// `npm run build --report`
 			// Set to `true` or `false` to always turn it on or off
 			bundleAnalyzerReport: process.env.npm_config_report
-        },
-        dev: {
+		},
+		dev: {
 			env: require('./dev.env'),
 			port: 9527,
 			autoOpenBrowser: true,
@@ -32,7 +32,7 @@ module.exports = {
 				// '/static': {
 				// 	target: 'http://localhost:9527',
 				// 	changeOrigin: true,
-		 	// 	}
+			// 	}
 			},
 			// CSS Sourcemaps off by default because relative paths are "buggy"
 			// with this option, according to the CSS-Loader README
@@ -40,5 +40,5 @@ module.exports = {
 			// In our experience, they generally work as expected,
 			// just be aware of this issue when enabling this option.
 			cssSourceMap: false
-        }
+		}
 }

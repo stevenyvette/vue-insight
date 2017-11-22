@@ -18,12 +18,12 @@ import Layout from '../views/layout/Layout'
 
 export const constantRouterMap = [
 	{
-		path: '/',
+		path: '/dashboard',
 		component: Layout,
-		redirect: '/dashboard',
+		redirect: '/dashboard/index',
+		name: '展示',
 		icon: 'component',
 		hidden: true,
-		noDropdown: true,
 		children: [{ path: 'index', component: _import('dashboard/index'), name: '展示' }]
 	},
 	{
@@ -129,7 +129,7 @@ export const constantRouterMap = [
 	},
 	{ path: '/404', component: _import('errorPage/404'), hidden: true },
 	{ path: '/401', component: _import('errorPage/401'), hidden: true },
-	{ path: '*', redirect: '/404', hidden: true }
+	{ path: '*', redirect: '/dashboard', hidden: true }
 ]
 
 export default new Router({
