@@ -17,12 +17,13 @@ import Layout from '../views/layout/Layout'
 **/
 
 export const constantRouterMap = [
-	{ path: '/404', component: _import('errorPage/404'), hidden: true },
-	{ path: '/401', component: _import('errorPage/401'), hidden: true },
 	{
 		path: '/',
 		component: Layout,
+		redirect: '/dashboard',
+		icon: 'component',
 		hidden: true,
+		noDropdown: true,
 		children: [{ path: 'index', component: _import('dashboard/index'), name: '展示' }]
 	},
 	{
@@ -72,41 +73,41 @@ export const constantRouterMap = [
 		]
 	},
 	{
-	path: '/example',
-	component: Layout,
-	redirect: 'noredirect',
-	name: '综合实例',
-	icon: 'example',
-	children: [
-		{
-		path: '/example/table',
-		component: _import('example/table/index'),
-		redirect: '/example/table/table',
-		name: 'Table',
-		icon: 'table',
+		path: '/example',
+		component: Layout,
+		redirect: 'noredirect',
+		name: '综合实例',
+		icon: 'example',
 		children: [
-			{ path: 'dynamictable', component: _import('example/table/dynamictable/index'), name: '动态table' },
-			{ path: 'dragtable', component: _import('example/table/dragTable'), name: '拖拽table' },
-			{ path: 'inline_edit_table', component: _import('example/table/inlineEditTable'), name: 'table内编辑' },
-			{ path: 'table', component: _import('example/table/table'), name: '综合table' }
+			{
+			path: '/example/table',
+			component: _import('example/table/index'),
+			redirect: '/example/table/table',
+			name: 'Table',
+			icon: 'table',
+			children: [
+				{ path: 'dynamictable', component: _import('example/table/dynamictable/index'), name: '动态table' },
+				{ path: 'dragtable', component: _import('example/table/dragTable'), name: '拖拽table' },
+				{ path: 'inline_edit_table', component: _import('example/table/inlineEditTable'), name: 'table内编辑' },
+				{ path: 'table', component: _import('example/table/table'), name: '综合table' }
+			]
+			},
+			{ path: 'form/edit', icon: 'form', component: _import('example/form'), name: '编辑Form', meta: { isEdit: true }},
+			{ path: 'form/create', icon: 'form', component: _import('example/form'), name: '创建Form' },
+			{ path: 'tab/index', icon: 'tab', component: _import('example/tab/index'), name: 'Tab' }
 		]
-		},
-		{ path: 'form/edit', icon: 'form', component: _import('example/form'), name: '编辑Form', meta: { isEdit: true }},
-		{ path: 'form/create', icon: 'form', component: _import('example/form'), name: '创建Form' },
-		{ path: 'tab/index', icon: 'tab', component: _import('example/tab/index'), name: 'Tab' }
-	]
 	},
 	{
-	path: '/excel',
-	component: Layout,
-	redirect: '/excel/download',
-	name: 'excel',
-	icon: 'excel',
-	children: [
-		{ path: 'download', component: _import('excel/index'), name: 'export excel' },
-		{ path: 'download2', component: _import('excel/selectExcel'), name: 'export selected' },
-		{ path: 'upload', component: _import('excel/uploadExcel'), name: 'upload excel' }
-	]
+		path: '/excel',
+		component: Layout,
+		redirect: '/excel/download',
+		name: 'excel',
+		icon: 'excel',
+		children: [
+			{ path: 'download', component: _import('excel/index'), name: 'export excel' },
+			{ path: 'download2', component: _import('excel/selectExcel'), name: 'export selected' },
+			{ path: 'upload', component: _import('excel/uploadExcel'), name: 'upload excel' }
+		]
 	},
 	{
 		path: '/theme',
@@ -126,6 +127,8 @@ export const constantRouterMap = [
 		noDropdown: true,
 		children: [{ path: 'index', component: _import('document/index'), name: '文档' }]
 	},
+	{ path: '/404', component: _import('errorPage/404'), hidden: true },
+	{ path: '/401', component: _import('errorPage/401'), hidden: true },
 	{ path: '*', redirect: '/404', hidden: true }
 ]
 
