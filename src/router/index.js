@@ -129,12 +129,12 @@ export const constantRouterMap = [
 	},
 	{ path: '/404', component: _import('errorPage/404'), hidden: true },
 	{ path: '/401', component: _import('errorPage/401'), hidden: true },
-	{ path: '*', redirect: '/dashboard', hidden: true }
+	{ path: '*', redirect: '/document', hidden: true }
 ]
 
 export default new Router({
 	mode: 'history', //后端支持可开
-	// base: '/dist/',
+	base: '/dist/',
 	scrollBehavior: () => ({ y: 0 }),
 	routes: constantRouterMap
 })
